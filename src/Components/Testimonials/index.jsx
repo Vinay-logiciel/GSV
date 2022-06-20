@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import { IoPeopleCircleOutline } from "react-icons/io5";
-import { Box, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 
 import "./style.css";
 import "slick-carousel/slick/slick.css";
@@ -22,7 +22,7 @@ const Testimonials = () => {
     setTestimonialClient(
       TESTIMONIAL_CARD_DATA[testimonialArr[activeSlide].value].testimonials
     );
-  }, [activeSlide]);
+  }, [activeSlide, testimonialArr]);
 
   return (
     <Box className={`${classes.testimonials} testimonials`}>
@@ -46,6 +46,7 @@ const Testimonials = () => {
           infinite={true}
           slidesToShow={5}
           slidesToScroll={1}
+          centerMode={true}
           nextArrow={<ChevronRight className="rightArrow" />}
           prevArrow={<ChevronLeft className="leftArrow" />}
           responsive={responsive_slider}
